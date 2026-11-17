@@ -1,0 +1,15 @@
+services:
+  policy-db:
+    image: postgres:16
+    container_name: policy-db
+    environment:
+      POSTGRES_DB: policy_db
+      POSTGRES_USER: ridesure
+      POSTGRES_PASSWORD: ridesure
+    ports:
+      - "5434:5432"
+    volumes:
+      - policy-data:/var/lib/postgresql/data
+
+volumes:
+  policy-data:

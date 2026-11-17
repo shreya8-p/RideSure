@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: policy-service
+  datasource:
+    url: jdbc:postgresql://localhost:5434/policy_db
+    username: ridesure
+    password: ridesure
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
