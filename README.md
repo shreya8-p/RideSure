@@ -1,5 +1,7 @@
 # RideSure
 
+![CI](https://github.com/shreya8-p/RideSure/actions/workflows/ci.yml/badge.svg)
+
 A learning project inspired by how insurance systems work: a two-wheeler
 insurance backend, built step by step to practise Java, Spring Boot,
 Docker and Kubernetes.
