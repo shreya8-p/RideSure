@@ -2,6 +2,7 @@ services:
   policy-db:
     image: postgres:16
     container_name: policy-db
+    restart: unless-stopped
     environment:
       POSTGRES_DB: policy_db
       POSTGRES_USER: ridesure
