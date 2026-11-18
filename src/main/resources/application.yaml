@@ -1,10 +1,13 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: policy-service
   datasource:
-    url: jdbc:postgresql://localhost:5434/policy_db
-    username: ridesure
-    password: ridesure
+    url: ${DB_URL:jdbc:postgresql://localhost:5434/policy_db}
+    username: ${DB_USER:ridesure}
+    password: ${DB_PASSWORD:ridesure}
   jpa:
     open-in-view: false
     hibernate:

@@ -11,6 +11,24 @@ services:
       - "5434:5432"
     volumes:
       - policy-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ridesure -d policy_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  policy-service:
+    build: .
+    container_name: policy-service
+    depends_on:
+      policy-db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://policy-db:5432/policy_db
+      DB_USER: ridesure
+      DB_PASSWORD: ridesure
+    ports:
+      - "8081:8080"
 
 volumes:
   policy-data:
