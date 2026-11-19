@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: policy-db-secret
+  namespace: ridesure
+type: Opaque
+stringData:
+  POSTGRES_USER: ridesure
+  POSTGRES_PASSWORD: ridesure
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: policy-config
+  namespace: ridesure
+data:
+  POSTGRES_DB: policy_db
+  DB_URL: jdbc:postgresql://policy-db:5432/policy_db
