@@ -39,3 +39,9 @@ The API is then available on http://localhost:8081
 - Money uses BigDecimal / numeric, never double
 - Business rules live inside the entity, not in controllers
 - Database settings come from environment variables, with local defaults
+
+## Run on Kubernetes (kind)
+    docker build -t ridesure-policy-service:local .
+    kind load docker-image ridesure-policy-service:local --name <your-cluster-name>
+    kubectl apply -f k8s/
+    kubectl port-forward -n ridesure svc/policy-service 8083:80
